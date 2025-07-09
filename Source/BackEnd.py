@@ -1,10 +1,10 @@
 import yt_dlp
 class DownloadYoutube:
-    def __init__(self, youtube_url, output_path='.'):
+    def __init__(self, youtube_url = '', output_path='.'):
         self.youtube_url = youtube_url
         self.OutputPath = output_path
 
-    def download_mp3(self, youtubeURL=None):
+    def downloadMp3(self, youtubeURL=None):
         ydl_opts = {
             'format': 'bestaudio/best',
             'outtmpl': f'{self.OutputPath}/%(title)s.%(ext)s',
@@ -19,7 +19,7 @@ class DownloadYoutube:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([youtubeURL])
 
-    def download_mp4(self, youtubeURL=None):
+    def downloadMp4(self, youtubeURL=None):
         ydl_opts = {
             'format': 'bestvideo+bestaudio/best',
             'outtmpl': f'{self.OutputPath}/%(title)s.%(ext)s',
